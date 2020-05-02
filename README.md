@@ -13,3 +13,4 @@ Other concepts and frameworks utilized:
 TODO:
   1. Utilize UserDefaults property wrappers
   2. Add favorite characters screen
+  3. Implemet cache expiration
