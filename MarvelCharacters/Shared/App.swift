@@ -14,9 +14,7 @@ final class AppEnvironment {
 	let decoder = JSONDecoder()
 	let encoder = JSONEncoder()
 	let files = FileManager.default
-	let defaults = UserDefaults.standard
-	lazy var counter = LaunchCounter(defaults: defaults)
-
+	let counter = LaunchCounter()
 	lazy var service: MarvelService =
 		MarvelService(session: session, decoder: decoder)
 }
@@ -39,6 +37,7 @@ enum AppAction {
 func appReducer( state: inout AppState, action: AppAction, environment: AppEnvironment) -> AnyPublisher<AppAction, Never>? {
 	switch action {
 	case let .append(characters):
+		Storage.charactersLastUpdatedTime = Date()
 		state.isLoading = false
 		state.characters.append(contentsOf: characters)
 	case .fetch:
@@ -58,6 +57,12 @@ func appReducer( state: inout AppState, action: AppAction, environment: AppEnvir
 		state = newState
 		
 		if state.characters.isEmpty {
+			return Just(.fetch)
+				.eraseToAnyPublisher()
+			
+		} else if let lastUpdated = Storage.charactersLastUpdatedTime,
+			lastUpdated.differenceInDaysFromNow < 2 {
+			state.characters.removeAll()
 			return Just(.fetch)
 				.eraseToAnyPublisher()
 		}

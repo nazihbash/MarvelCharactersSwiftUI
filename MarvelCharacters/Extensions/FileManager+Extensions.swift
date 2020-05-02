@@ -35,7 +35,7 @@ extension FileManager {
 			return Future { promise in
 				do {
 					let documentsURL = try self.url(
-						for: .applicationSupportDirectory,
+						for: directory,
 						in: .userDomainMask,
 						appropriateFor: nil,
 						create: true

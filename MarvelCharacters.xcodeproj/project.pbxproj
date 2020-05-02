@@ -28,6 +28,8 @@
 		8E713B65245DA87100121EC3 /* ImagePlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E713B64245DA87100121EC3 /* ImagePlaceHolderView.swift */; };
 		8E713B67245DA98F00121EC3 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E713B66245DA98F00121EC3 /* ButtonStyles.swift */; };
 		8ECDE924245DAF070012E4A2 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDE923245DAF070012E4A2 /* ShareView.swift */; };
+		8ECDE926245E244F0012E4A2 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDE925245E244F0012E4A2 /* Storage.swift */; };
+		8ECDE928245E28890012E4A2 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECDE927245E28890012E4A2 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		8E713B64245DA87100121EC3 /* ImagePlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaceHolderView.swift; sourceTree = "<group>"; };
 		8E713B66245DA98F00121EC3 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		8ECDE923245DAF070012E4A2 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		8ECDE925245E244F0012E4A2 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		8ECDE927245E28890012E4A2 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		9F0C50791DB9592D1BE6B506 /* Pods-MarvelCharacters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharacters.release.xcconfig"; path = "Target Support Files/Pods-MarvelCharacters/Pods-MarvelCharacters.release.xcconfig"; sourceTree = "<group>"; };
 		ADB7BE989F1265C43A3F63E7 /* Pods-MarvelCharacters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharacters.debug.xcconfig"; path = "Target Support Files/Pods-MarvelCharacters/Pods-MarvelCharacters.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +133,7 @@
 				8E713B5A245CE55900121EC3 /* LaunchCounter.swift */,
 				8E713B51245CD0F000121EC3 /* MarvelCharacter.swift */,
 				8E713B4F245CCFFE00121EC3 /* MarvelService.swift */,
+				8ECDE925245E244F0012E4A2 /* Storage.swift */,
 				8E713B58245CDE5300121EC3 /* Store.swift */,
 			);
 			path = Shared;
@@ -147,8 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				8E713B5C245D047000121EC3 /* ActivityIndicator.swift */,
-				8E713B62245DA78100121EC3 /* SafariView.swift */,
 				8E713B64245DA87100121EC3 /* ImagePlaceHolderView.swift */,
+				8E713B62245DA78100121EC3 /* SafariView.swift */,
 				8ECDE923245DAF070012E4A2 /* ShareView.swift */,
 			);
 			path = Views;
@@ -157,10 +162,11 @@
 		8E713B53245CD2EC00121EC3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8E713B66245DA98F00121EC3 /* ButtonStyles.swift */,
+				8ECDE927245E28890012E4A2 /* Date+Extensions.swift */,
 				8E713B56245CDD3200121EC3 /* FileManager+Extensions.swift */,
 				8E713B5E245D93CB00121EC3 /* RandomAccessCollection+Extensions.swift */,
 				8E713B54245CD2FE00121EC3 /* String+Extensions.swift */,
-				8E713B66245DA98F00121EC3 /* ButtonStyles.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,7 +303,9 @@
 				8ECDE924245DAF070012E4A2 /* ShareView.swift in Sources */,
 				8E713B5F245D93CB00121EC3 /* RandomAccessCollection+Extensions.swift in Sources */,
 				8E713B63245DA78100121EC3 /* SafariView.swift in Sources */,
+				8ECDE928245E28890012E4A2 /* Date+Extensions.swift in Sources */,
 				8E713B52245CD0F000121EC3 /* MarvelCharacter.swift in Sources */,
+				8ECDE926245E244F0012E4A2 /* Storage.swift in Sources */,
 				8E713B5D245D047000121EC3 /* ActivityIndicator.swift in Sources */,
 				8E713B5B245CE55900121EC3 /* LaunchCounter.swift in Sources */,
 				8E713B39245CCD0E00121EC3 /* SceneDelegate.swift in Sources */,
