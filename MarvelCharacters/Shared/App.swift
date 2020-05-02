@@ -61,7 +61,7 @@ func appReducer( state: inout AppState, action: AppAction, environment: AppEnvir
 				.eraseToAnyPublisher()
 			
 		} else if let lastUpdated = Storage.charactersLastUpdatedTime,
-			lastUpdated.differenceInDaysFromNow < 2 {
+			lastUpdated.differenceInDaysFromNow > 2 {
 			state.characters.removeAll()
 			return Just(.fetch)
 				.eraseToAnyPublisher()
