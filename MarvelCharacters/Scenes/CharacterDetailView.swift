@@ -16,7 +16,7 @@ struct CharacterDetailView: View {
 
 	var body: some View {
 		ScrollView {
-			VStack(alignment: .leading, spacing: 16) {
+			VStack(alignment: .leading) {
 				KFImage(character.imageUrl)
 					.placeholder{ ImagePlaceHolderView() }
 					.resizable()
@@ -39,7 +39,7 @@ struct CharacterDetailView: View {
 							Text("Show Wiki")
 						}.buttonStyle(FilledButtonStyle())
 					}
-				}.padding(.horizontal)
+				}.padding()
 			}
 		}
 		.navigationBarItems(
@@ -48,7 +48,8 @@ struct CharacterDetailView: View {
 					Button(action: { self.shareShwon = true }) {
 						Image(systemName: "square.and.arrow.up")
 							.font(.headline)
-					}.sheet(isPresented: $shareShwon) {
+					}
+                    .sheet(isPresented: $shareShwon) {
 						ShareView(items: [self.character.wikiUrl!])
 					}
 				}

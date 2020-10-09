@@ -26,14 +26,15 @@ struct CharactersView: View {
 	
 	var body: some View {
 		NavigationView {
-			ZStack(alignment: .center) {
-				if characters.isEmpty {
-					ActivityIndicator(isAnimating: .constant(true), style: .medium)
-				} else {
-					list
-				}
-			}
-			.navigationBarTitle("Marvel Characters")
+            if characters.isEmpty {
+                ZStack(alignment: .center) {
+                    ActivityIndicator(isAnimating: .constant(true),
+                                      style: .medium)
+                }
+            } else {
+                list
+                    .navigationBarTitle("Marvel Characters")
+            }
 		}
 		.onAppear {
 			if !self.isLoading && !self.isRestoringState && self.characters.isEmpty {
@@ -86,7 +87,10 @@ struct CharacterRow: View {
 					.shadow(radius: 5)
 				
 				LinearGradient(
-					gradient: .init(colors: [Color.clear, Color.black.opacity(0.7)]),
+					gradient: .init(colors: [
+                                        Color.clear,
+                                        Color.black.opacity(0.7)
+                    ]),
 					startPoint: .center,
 					endPoint: .bottom
 				)
