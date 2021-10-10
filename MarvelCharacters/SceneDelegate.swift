@@ -40,7 +40,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		appEnvironment.counter.launch()
 		
 		if appEnvironment.counter.isReadyToRate {
-			SKStoreReviewController.requestReview()
+      if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+          SKStoreReviewController.requestReview(in: scene)
+      }
 		}
 	}
 }

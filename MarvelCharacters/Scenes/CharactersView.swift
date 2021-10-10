@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import struct Kingfisher.KFImage
 
 struct CharactersView: View {
 	@EnvironmentObject var store: AppStore
@@ -49,11 +48,13 @@ struct CharactersView: View {
 			ForEach(characters) { character in
 				CharacterRow(character: character)
 					.onAppear { self.listItemAppears(character) }
-			}
+      }
+      .listStyle(GroupedListStyle())
 			if isLoading {
 				footerActivityIndicator
 			}
 		}
+    .listStyle(PlainListStyle())
 	}
 	
 	private var footerActivityIndicator: some View {
@@ -79,13 +80,15 @@ struct CharacterRow: View {
 	var body: some View {
 		NavigationLink(destination: CharacterDetailView(character: character)) {
 			ZStack(alignment: .bottomLeading) {
-				KFImage(character.imageUrl)
-					.placeholder{ ImagePlaceHolderView() }
-					.resizable()
-					.aspectRatio(contentMode: .fill)
-					.cornerRadius(10)
-					.shadow(radius: 5)
-				
+        AsyncImage(url: character.imageUrl, content: { image in
+          image
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .cornerRadius(10)
+            .shadow(radius: 5)
+        }) {
+          ImagePlaceHolderView()
+        }
 				LinearGradient(
 					gradient: .init(colors: [
                                         Color.clear,
@@ -105,8 +108,6 @@ struct CharacterRow: View {
 			}
 		}
 	}
-	
-	
 }
 
 struct ContentView_Previews: PreviewProvider {

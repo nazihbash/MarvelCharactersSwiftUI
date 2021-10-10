@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import struct Kingfisher.KFImage
 
 struct CharacterDetailView: View {
 	let character: MarvelCharacter
@@ -17,12 +16,15 @@ struct CharacterDetailView: View {
 	var body: some View {
 		ScrollView {
 			VStack(alignment: .leading) {
-				KFImage(character.imageUrl)
-					.placeholder{ ImagePlaceHolderView() }
-					.resizable()
-					.aspectRatio(contentMode: .fill)
-					.frame(height: 300)
-					.clipped()
+        AsyncImage(url: character.imageUrl, content: { image in
+          image
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(height: 300)
+            .clipped()
+        }) {
+          ImagePlaceHolderView()
+        }
 				
 				VStack(alignment: .leading, spacing: 16) {
 					VStack(alignment: .leading, spacing: 8) {
